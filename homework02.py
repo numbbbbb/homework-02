@@ -89,21 +89,14 @@ def main():     # 写成函数，方便单元测试。
             for i in range(0, n):
                 for j in range(0, m):
                     visited[i, j] = 0
-            ok = False
             for i in range(0, n):
-                if ok:
-                    break
                 for j in range(0, m):
-                    if ok:
-                        break
                     if allnum[i][j] > 0:
-                        start_x = i
-                        start_y = j
-                        ok = True
-            visited[start_x, start_y] = 1
-            walkthrough_min_x = 0
-            walkthrough_min_y = 0
-            walkthrough(start_x, start_y, allnum[start_x][start_y])
+                        allpoint = []
+                        walkthrough_min_x = 0
+                        walkthrough_min_y = 0
+                        visited[i, j] = 1
+                        walkthrough(i, j, allnum[i][j])
             return themax
         elif sys.argv[1] == '/h':       # 左右相连
             for i in range(1, n + 1):
