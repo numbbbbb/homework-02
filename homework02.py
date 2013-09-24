@@ -35,7 +35,7 @@ def walkthrough(x, y, tempmax):     # 递归找联通的最大值，贪心法，
     global themax, allnum, visited, allpoint, movestep, walkthrough_min_x, walkthrough_min_y
     themax = max(themax, tempmax)
     for i in movestep:
-        if x + i[0] >= walkthrough_min_x and x + i[0] < n and y + i[1] >= walkthrough_min_y and y + i[1] < m and visited[(x + i[0]) % n, (y + i[1]) % m] == 0:
+        if x + i[0] >= walkthrough_min_x and x + i[0] < n and y + i[1] >= walkthrough_min_y and y + i[1] < m and visited[(x + i[0]) % n, (y + i[1]) % m] == 0 and [(x + i[0]) % n, (y + i[1]) % m, allnum[(x + i[0]) % n][(y + i[1]) % m]] not in allpoint:
             allpoint.append([(x + i[0]) % n, (y + i[1]) % m, allnum[(x + i[0]) % n][(y + i[1]) % m]])
     allpoint = sorted(allpoint, key=lambda x: x[2])
     if allpoint == []:
